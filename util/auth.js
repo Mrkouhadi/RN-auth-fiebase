@@ -5,10 +5,10 @@ const BACKEND_URL = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?k
 
 
 export const createUser = async (email, password)=>{
-    const response = await axios.post(BACKEND_URL, {
+     await axios.post(BACKEND_URL, {
                         email, 
                         password, 
                         returnSecureToken:true
                     });
-
+                    // const response =
 }
