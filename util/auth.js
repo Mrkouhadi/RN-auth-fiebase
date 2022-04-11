@@ -10,6 +10,7 @@ const API_KEY = "AIzaSyAlOjfCkrGF8NBbtr2xSGuEexUpWkSrMcw"
                         password, 
                         returnSecureToken:true
                     });
+    console.log(response.data);
 }
 export const createUser = async (email, password) =>{
     await authenticate('signUp', email, password);
