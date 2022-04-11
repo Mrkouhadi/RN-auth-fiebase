@@ -10,5 +10,4 @@ const createUser = async (email, password)=>{
                         password, 
                         returnSecureToken:true
                     });
-    
 }
