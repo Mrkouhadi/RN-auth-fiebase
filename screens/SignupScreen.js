@@ -1,16 +1,18 @@
-import { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import AuthContent from '../components/Auth/AuthContent';
 import { createUser } from '../util/auth';
 import LoadingOverlay from '../components/ui/LoadingOverlay';
 import { Alert } from 'react-native';
+import { AuthContext } from '../store/auth-context';
 
 function SignupScreen() {
         const [isRegistering, setIsRegistering] = useState(false);
-
+        const authCtx = useContext(AuthContext);
         const signupHandler = async ({email,password})=>{
           setIsRegistering(true);
           try{
-            await createUser(email,password);
+            const token = await createUser(email,password);
+            authCtx.authenticate(token);
           }catch(error){
             Alert.alert("Signing Up Failed !","Could not sign you up. PLease try again  !")
           }
