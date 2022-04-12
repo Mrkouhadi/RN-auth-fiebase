@@ -1,5 +1,4 @@
-const { createContext, useState } = require("react");
-
+import React,{useState, createContext} from 'react'
 export const AuthContext = createContext({
     token:'',
     isAuthenticated:false,
@@ -8,7 +7,7 @@ export const AuthContext = createContext({
 });
 
 const AuthContextProvider = ({children}) =>{
-    const [authToken, setAuthToken] = useState(null);
+    const [authToken, setAuthToken] = useState();
 
     const authenticate=(token)=>{
         setAuthToken(token)
