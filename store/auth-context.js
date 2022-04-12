@@ -4,20 +4,21 @@ export const AuthContext = createContext({
     token:'',
     authenticated:false,
     authenticate:()=>{},
+    logOut:()=>{}
 });
 
 const AuthContextProvider = ({children}) =>{
-    const [authenticated, setAuthenticated] = useState(false);
+    const [authToken, setAuthToken] = useState();
 
-    const authenticate=()=>{
-        setAuthenticated(true)
+    const authenticate=(token)=>{
+        setAuthToken(token)
     }
     const logOut=()=>{
-        setAuthenticated(false)
+        setAuthToken(null)
     }
     const value={
         token:'',
-        authenticated:authenticated,
+        authenticated:authToken,
         authenticate:authenticate,
         logOut:logOut,
     };
