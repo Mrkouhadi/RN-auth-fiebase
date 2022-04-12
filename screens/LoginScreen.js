@@ -17,8 +17,8 @@ function LoginScreen() {
 
         }catch(error){
           Alert.alert("Loggin in Failed !","Could not log in you in. PLease double check your credentials !")
+          setIsLogin(false);
         }
-        setIsLogin(false);
     }
 
       if(isLogin) return <LoadingOverlay  message="Authenticating..." / >
